@@ -1,17 +1,17 @@
 {% extends 'base.html'%}
-{% block title%}Madlibs{% endblock %}
+{% block title%}Home{% endblock %}
 
 {% block content %}
-    <h2>Madlibs</h2>
-     <form action="/story">
-        {% for char in prompts %}
-        <label for={{char}}:>{{char}}</label>
-        <input type="text" name={{char}} id={{char}}>
-        <br>
-        {% endfor %}
-        <button>Submit!</button>
-       
-    </form>
-    {% endblock %}
+<h2>Choose your story!</h2>
+<form action="/ml_form"> 
+<select name="template" id="" >
+    {% for s in stories %}
+    <option value="{{s.code}}">{{s.title}}</option>
+    {% endfor %}
+   
+</select>
+<button >Submit!</button>
 
-    
+</form>
+
+{% endblock %}
